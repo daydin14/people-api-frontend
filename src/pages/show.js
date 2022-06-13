@@ -1,4 +1,4 @@
-function show(props) {
+function Show(props) {
   return (
     <div>Show</div>
   )

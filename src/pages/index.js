@@ -1,6 +1,8 @@
-const index = (props) => {
+const Index = (props) => {
   return (
-    <div>Index</div>
+    <div>
+      <h1>Index Component</h1>
+    </div>
   )
 }
 

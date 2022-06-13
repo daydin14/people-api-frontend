@@ -1,19 +1,20 @@
 import { render } from "@testing-library/react";
 import {Route} from "react-router-dom";
-import index from "../pages/Index";
+import Index from "../pages/Index";
+import Show from "../pages/Show";
 
 
 const Main = (props) => {
     return (
         <main>
-            <Switch>
+            <switch>
                 <Route exact path="/">
                     <Index />
                 </Route>
                 <Route path="/people/:id" render={ (renderProps) => (
                     <Show {...renderProps} /> 
                 )} />
-            </Switch>
+            </switch>
         </main>
     )
 };
