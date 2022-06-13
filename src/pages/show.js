@@ -1,7 +1,9 @@
-function Show(props) {
+const Show = (props) => {
   return (
-    <div>Show</div>
-  )
-}
+    <div>
+      <h1>Show Component</h1>
+    </div>
+  );
+};
 
 export default Show;
