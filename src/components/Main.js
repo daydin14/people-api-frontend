@@ -1,20 +1,41 @@
-import { render } from "@testing-library/react";
+import {useState, useEffect} from "react";
 import {Route} from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 
-
 const Main = (props) => {
+    const [people, setPeople] = useState(null);
+    const URL = "http://localhost:4000/people/";
+
+    const getPeople = async () => {
+        const response = await fetch(URL);
+        const data = await response.json();
+        setPeople(data);
+    }
+
+    const createPeople = async (person) => {
+        await fetch(URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "Application/json",
+            },
+            body: JSON.stringify(person),
+        });
+        getPeople();
+    };
+
+    useEffect(() => getPeople(), []);
+
     return (
         <main>
-            <switch>
-                <Route exact path="/">
-                    <Index />
-                </Route>
-                <Route path="/people/:id" render={ (renderProps) => (
-                    <Show {...renderProps} /> 
-                )} />
-            </switch>
+
+            <Route exact path="/">
+                <Index />
+            </Route>
+            <Route path="/people/:id" render={ (renderProps) => (
+                <Show {...renderProps} /> 
+            )} />
+
         </main>
     )
 };

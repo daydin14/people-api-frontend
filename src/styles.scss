@@ -13,7 +13,7 @@ $contrastcolor: white;
 }
 
 // Header
-nav {
+.nav {
     @include white-text-black-bg();
     display: flex;
     justify-content: flex-start;
