@@ -1,6 +1,15 @@
+import {Route} from "react-router-dom";
+import index from "../pages/Index";
+
+
 const Main = (props) => {
     return (
-        <main>Main Component</main>
+        <main>
+            <Route exact path="/">
+                <Index />
+            </Route>
+            <Route path="/people/:id" render={ (renderProps) => <Show/> } />
+        </main>
     )
 };
 

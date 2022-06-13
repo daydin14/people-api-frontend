@@ -1,7 +1,7 @@
 const index = (props) => {
   return (
-    <div>index</div>
+    <div>Index</div>
   )
 }
 
-export default index;
+export default Index;

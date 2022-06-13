@@ -1,7 +1,7 @@
 function show(props) {
   return (
-    <div>show</div>
+    <div>Show</div>
   )
 }
 
-export default show;
+export default Show;
