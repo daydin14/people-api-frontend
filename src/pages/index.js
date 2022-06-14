@@ -26,8 +26,6 @@ const Index = (props) => {
         <Link to={`/people/${person._id}`}>
           <h1>{person.name}</h1>
         </Link>
-        <img src={person.img} alt={person.name} width="100px" />
-        <h3>{person.title}</h3>
       </li>
     ));
   };
@@ -63,7 +61,7 @@ const Index = (props) => {
         <input type="submit" value="Create Person" />
       </form>
       {props.people ? (
-        <ol style={{ textAlign: "left" }}>{loaded()}</ol>
+        <ol style={{ textAlign: "center" }}>{loaded()}</ol>
       ) : (
         loading()
       )}

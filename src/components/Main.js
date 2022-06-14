@@ -5,6 +5,7 @@ import Show from "../pages/Show";
 
 const Main = (props) => {
   const [people, setPeople] = useState(null);
+
   const URL = "http://localhost:4000/people/";
 
   const getPeople = async () => {
@@ -35,6 +36,11 @@ const Main = (props) => {
     getPeople();
   };
 
+  const deletePeople = async (id) => {
+    await fetch(URL + id, { method: "DELETE" });
+    getPeople();
+  };
+
   useEffect(() => {
     getPeople();
   }, []);
@@ -47,8 +53,8 @@ const Main = (props) => {
 
       <Route
         path="/people/:id"
-        render={(renderProps) => (
-          <Show {...renderProps} people={people} updatePeople={updatePeople} />
+        render={(rp) => (
+          <Show {...rp} people={people} updatePeople={updatePeople} />
         )}
       />
     </main>
