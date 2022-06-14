@@ -18,11 +18,6 @@ const Index = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.createPeople(newForm);
-    setNewForm({
-      name: "",
-      img: "",
-      title: "",
-    });
   };
 
   const loaded = () => {
@@ -67,7 +62,11 @@ const Index = (props) => {
         />
         <input type="submit" value="Create Person" />
       </form>
-      {props.people ? <ol>{loaded()}</ol> : loading()}
+      {props.people ? (
+        <ol style={{ textAlign: "left" }}>{loaded()}</ol>
+      ) : (
+        loading()
+      )}
     </section>
   );
 };

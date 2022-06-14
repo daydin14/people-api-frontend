@@ -24,6 +24,15 @@ const Main = (props) => {
     getPeople();
   };
 
+  const updatePeople = async (updatedPerson, id) => {
+    await fetch(URL + id, {
+      method: "PUT",
+      headers: {
+        "Content-type": "x-www-form-urlencoded",
+      },
+    });
+  };
+
   useEffect(() => {
     getPeople();
   }, []);
@@ -31,7 +40,7 @@ const Main = (props) => {
   return (
     <main>
       <Route exact path="/">
-        <Index people={people} />
+        <Index people={people} createPeople={createPeople} />
       </Route>
       <Route
         path="/people/:id"
