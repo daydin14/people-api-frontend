@@ -27,13 +27,13 @@ const Index = (props) => {
 
   const loaded = () => {
     return props.people.map((person) => (
-      <div key={person._id} className="person">
+      <li key={person._id} className="person">
         <Link to={`/people/${person._id}`}>
           <h1>{person.name}</h1>
         </Link>
         <img src={person.img} alt={person.name} />
         <h3>{person.title}</h3>
-      </div>
+      </li>
     ));
   };
 
@@ -67,7 +67,7 @@ const Index = (props) => {
         />
         <input type="submit" value="Create Person" />
       </form>
-      {props.people ? loaded() : loading()}
+      {props.people ? <ol>{loaded()}</ol> : loading()}
     </section>
   );
 };
