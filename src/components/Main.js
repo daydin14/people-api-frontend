@@ -42,9 +42,12 @@ const Main = (props) => {
       <Route exact path="/">
         <Index people={people} createPeople={createPeople} />
       </Route>
+
       <Route
         path="/people/:id"
-        render={(renderProps) => <Show {...renderProps} />}
+        render={(renderProps) => (
+          <Show {...renderProps} people={people} updatePeople={updatePeople} />
+        )}
       />
     </main>
   );
