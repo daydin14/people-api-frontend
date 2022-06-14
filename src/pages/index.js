@@ -38,30 +38,30 @@ const Index = (props) => {
     <section>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
           value={newForm.name}
+          onChange={handleChange}
           name="name"
           placeholder="name"
-          onChange={handleChange}
+          type="text"
         />
         <input
-          type="text"
           value={newForm.img}
+          onChange={handleChange}
           name="img"
           placeholder="img"
-          onChange={handleChange}
+          type="text"
         />
         <input
-          type="text"
           value={newForm.title}
+          onChange={handleChange}
           name="title"
           placeholder="title"
-          onChange={handleChange}
+          type="text"
         />
         <input type="submit" value="Create Person" />
       </form>
       {props.people ? (
-        <ol style={{ textAlign: "center" }}>{loaded()}</ol>
+        <ol style={{ textAlign: "left" }}>{loaded()}</ol>
       ) : (
         loading()
       )}
