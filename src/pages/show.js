@@ -3,14 +3,27 @@ const Show = (props) => {
   const avatarUrl =
     "https://pixabay.com/vectors/avatar-icon-placeholder-facebook-1577909/";
   const id = props.match.params.id;
-  const person = props.people.find(function (p) {
-    return p._id === id;
-  });
-  // const person = props.people.find(p => p._id === id);
+
+  // const person = props.people.find(function (p) {
+  //   return p._id === id;
+  // });
+  const person = props.people.find((p) => p._id === id);
+
   const { editForm, setEditForm } = useState(person);
 
-  const handleChange = (event) => {};
-  const handleSubmit = (event) => {};
+  const handleChange = (event) => {
+    setEditForm({
+      ...editForm,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const { name, img, title, _id } = editForm;
+    props.updatePeople({ name, img, title }, _id);
+  };
+
   return (
     <div>
       <h1>{person.name}</h1>

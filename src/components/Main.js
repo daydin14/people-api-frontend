@@ -30,7 +30,9 @@ const Main = (props) => {
       headers: {
         "Content-type": "x-www-form-urlencoded",
       },
+      body: JSON.stringify(updatedPerson),
     });
+    getPeople();
   };
 
   useEffect(() => {
