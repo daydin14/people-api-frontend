@@ -11,6 +11,7 @@ const Main = (props) => {
   const getPeople = async () => {
     const response = await fetch(URL);
     const data = await response.json();
+    console.log("data:" + data);
     setPeople(data);
   };
 
@@ -29,7 +30,7 @@ const Main = (props) => {
     await fetch(URL + id, {
       method: "PUT",
       headers: {
-        "Content-type": "x-www-form-urlencoded",
+        "Content-type": "Application/json",
       },
       body: JSON.stringify(updatedPerson),
     });
@@ -45,16 +46,23 @@ const Main = (props) => {
     getPeople();
   }, []);
 
+  console.log({ people });
+
   return (
     <main>
-      <Route exact path="/">
+      <Route exact path="/people">
         <Index people={people} createPeople={createPeople} />
       </Route>
 
       <Route
         path="/people/:id"
         render={(rp) => (
-          <Show {...rp} people={people} updatePeople={updatePeople} deletePeople={deletePeople} />
+          <Show
+            {...rp}
+            people={people}
+            updatePeople={updatePeople}
+            deletePeople={deletePeople}
+          />
         )}
       />
     </main>

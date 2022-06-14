@@ -1,11 +1,14 @@
 import { useState } from "react";
 const Show = (props) => {
   const avatarUrl =
-    "https://cdn.pixabay.com/vectors/avatar-icon-placeholder-facebook-1577909/";
+    "https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png";
   const id = props.match.params.id;
+  // console.log(id);
+  // console.log(props.people);
+  // console.table(props);
 
-  // const person = props.people.find(function (p) {
-  //   return p._id === id;
+  // const person = props.people.find( function (p) {
+  //   return (p._id === id);
   // });
   const person = props.people.find((p) => p._id === id);
 

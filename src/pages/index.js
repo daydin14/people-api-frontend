@@ -26,6 +26,8 @@ const Index = (props) => {
         <Link to={`/people/${person._id}`}>
           <h1>{person.name}</h1>
         </Link>
+        <h2>{person.title}</h2>
+        <img src={person.img} width="100px" alt={person.name} />
       </li>
     ));
   };
